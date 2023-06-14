@@ -1,7 +1,7 @@
 package Entrainement;
 
-import personne.Intervenant.Joueur;
-import personne.Intervenant.Employé;
+import personne.intervenant.Joueur;
+import personne.intervenant.Employé;
 
 import java.time.LocalDate;
 
@@ -48,7 +48,7 @@ public class EntrainementSolo extends Entrainement
         System.out.println(e1);
 
         //TEST CONTRUCTEUR INITIALISATION
-        Employé entraineur1 = new Employé("Bodson","Phil",LocalDate.of(2000,7,12),1,"alexis", Employé.ENTRAINEURPHYS);
+        Employé entraineur1 = new Employé("Bodson","Phil",LocalDate.of(2000,7,12),1,"Phil" ,Employé.ENTRAINEURPHYS);
         Joueur j2= new Joueur("Bodson", "Alexis", LocalDate.of(2003,7,18), 10,Joueur.Poste.ATTAQUANT, 300000);
         EntrainementSolo e2 = new EntrainementSolo(LocalDate.of(2023,4,14), 145, entraineur1, "Entrainement Musculaire", j2 );
         System.out.println(e2);

@@ -1,8 +1,9 @@
-package personne.Intervenant;
+package personne.intervenant;
+import personne.Personne;
 
 import java.time.LocalDate;
 
-public abstract class Intervenant extends personne.Personne
+public abstract class Intervenant extends Personne
 {
     protected int NumId;
 

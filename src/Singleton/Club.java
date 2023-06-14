@@ -1,5 +1,8 @@
-import personne.Intervenant.Employé;
-import personne.Intervenant.Joueur;
+package Singleton;
+
+import Entrainement.Exercice;
+import personne.intervenant.Employé;
+import personne.intervenant.Joueur;
 import Entrainement.EntrainementCollectif;
 import Entrainement.EntrainementSolo;
 import java.util.ArrayList;
@@ -17,13 +20,24 @@ public class Club {
     private final ArrayList<EntrainementCollectif> ListEntColl;
     private final ArrayList<EntrainementSolo> ListEntSolo;
 
+    private final ArrayList<Exercice> ListExercices;
+
+    private static int numeroEmp = 1;
+
 
     private Club() {
         ListJoueurs = new ArrayList<Joueur>();
         ListEmployes = new ArrayList<Employé>();
         ListEntColl = new ArrayList<EntrainementCollectif>();
         ListEntSolo = new ArrayList<EntrainementSolo>();
-
+        ListExercices = new ArrayList<Exercice>();
+        LocalDate dateNaissance = LocalDate.of(2000, 7, 12);
+        Employé e1 = new Employé("Bodson","Alexis",dateNaissance,numeroEmp,"alexis",Employé.ADMINISTRATIF);
+        e1.setMotdepasse("alexis");
+        ListEmployes.add(e1);
+        numeroEmp++;
+        Joueur joueur1 = new Joueur("Messi", "Lionel", dateNaissance, 10 ,Joueur.Poste.ATTAQUANT, 1300000);
+        ListJoueurs.add(joueur1);
     }
 
     public static Club getInstance() {
@@ -41,10 +55,10 @@ public class Club {
         ListJoueurs.remove(joueur);
     }
 
-    public ArrayList<Joueur> getJoueurs() {
-        return ListJoueurs;
-    }
+    public  ArrayList<Joueur> getJoueurs() {return ListJoueurs;}
     public void addEmploye(Employé e) {
+        e.setNumId(numeroEmp);
+        numeroEmp++;
         ListEmployes.add(e);
     }
 
@@ -95,8 +109,8 @@ public class Club {
 
         //TEST DE LA LISTE EMPLOYE
 
-        Employé e2= new Employé("Bodson", "Alexis", dateNaissance, 1, "Alexis1207", Employé.ENTRAINEURPHYS );
-        Employé e1= new Employé("Messi", "Lionel", dateNaissance, 10 ,"Messi1207",Employé.ADMINISTRATIF);
+        Employé e2= new Employé("Bodson", "Alexis", dateNaissance, 1,"Alexis1207" ,Employé.ENTRAINEURPHYS );
+        Employé e1= new Employé("Messi", "Lionel", dateNaissance, 2 ,"Messi1207",Employé.ADMINISTRATIF);
         club.addEmploye(e1);
         club.addEmploye(e2);
         ArrayList<Employé> list2 = club.getEmployes();

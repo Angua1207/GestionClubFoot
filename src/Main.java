@@ -1,3 +1,5 @@
+import personne.intervenant.*;
+import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
         // TEST DE LE CLASSE PERSONNE//
@@ -34,7 +36,7 @@ public class Main {
         }*/
 
         //TEST CLASSE EMPLOYE (STAFF)
-        /*LocalDate dateNaissance = LocalDate.of(2000, 7, 12);
+        LocalDate dateNaissance = LocalDate.of(2000, 7, 12);
 
         Employé e1 = new Employé("Bodson","Alexis",dateNaissance,1,"alexis", Employé.ENTRAINEURPHYS);
         System.out.println(e1);
@@ -54,7 +56,9 @@ public class Main {
             System.out.println("\nPas les memes \n\nLa preuve :\n\n "+ e3);
         e4.setFonction(Employé.ENTRAINEURTECH);
         System.out.println(e4 + "\n");
-        System.out.println(e1);*/
+        e4.setMotdepasse("MOMO");
+        System.out.println(e4.getMotdepasse());
+        System.out.println(e1);
 
 
 

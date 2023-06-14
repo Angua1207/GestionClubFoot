@@ -1,7 +1,7 @@
-package personne.Intervenant;
+package personne.intervenant;
 
 import java.time.LocalDate;
-public class Joueur extends personne.Intervenant.Intervenant
+public class Joueur extends personne.intervenant.Intervenant
 {
     public enum Poste {
         GARDIEN,

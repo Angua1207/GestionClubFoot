@@ -1,8 +1,10 @@
 package Entrainement;
 
-import personne.Intervenant.Employé;
+import personne.intervenant.*;
+
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class EntrainementCollectif extends Entrainement
 {
@@ -31,12 +33,12 @@ public class EntrainementCollectif extends Entrainement
         System.out.println(e1);
 
         //TEST CONTRUCTEUR INITIALISATION
-        Employé entraineur1 = new Employé("Bodson","Phil",LocalDate.of(2000,7,12),1,"alexis", Employé.ENTRAINEURPHYS);
+        Employé entraineur1 = new Employé("Bodson","Phil",LocalDate.of(2000,7,12),1,"Phil" ,Employé.ENTRAINEURPHYS);
         EntrainementCollectif e2 = new EntrainementCollectif(LocalDate.of(2023,4,14), 145, entraineur1, "Entrainement Musculaire" );
         System.out.println(e2);
 
         //TEST SETTER GETTER
-        Employé entraineur2 = new Employé("Bodson","Alexis",LocalDate.of(2000,7,12),1,"alexis", Employé.ENTRAINEURPHYS);
+        Employé entraineur2 = new Employé("Bodson","Alexis",LocalDate.of(2000,7,12),1, "Alexis1207",Employé.ENTRAINEURPHYS);
         e2.setDate(LocalDate.of(2024,5,5));
         e2.setDuree(120);
         e2.setEntraineur(entraineur2);
