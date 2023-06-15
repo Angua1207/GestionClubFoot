@@ -52,6 +52,12 @@ public class JDialogEntrainement extends JDialog {
 
             }
         });
+        collectifButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 
     public JDialogEntrainement(Frame owner, String title, boolean modal) {
@@ -91,6 +97,14 @@ public class JDialogEntrainement extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JDialogEntSolo dialog = new JDialogEntSolo(clubFootball,"Entrainement Solo",true);
+                dialog.setVisible(true);
+
+            }
+        });
+        collectifButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JDialogEntCollectif dialog = new JDialogEntCollectif(clubFootball,"Entrainement Collectif",true);
                 dialog.setVisible(true);
 
             }

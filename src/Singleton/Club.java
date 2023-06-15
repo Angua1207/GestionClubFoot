@@ -7,6 +7,9 @@ import Entrainement.EntrainementCollectif;
 import Entrainement.EntrainementSolo;
 import java.util.ArrayList;
 import java.time.LocalDate;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 
 
@@ -32,7 +35,7 @@ public class Club {
         ListEntSolo = new ArrayList<EntrainementSolo>();
         ListExercices = new ArrayList<Exercice>();
         LocalDate dateNaissance = LocalDate.of(2000, 7, 12);
-        Employé e1 = new Employé("Bodson","Alexis",dateNaissance,numeroEmp,"alexis",Employé.ADMINISTRATIF);
+        Employé e1 = new Employé("Bodson","Alexis",dateNaissance,numeroEmp,"alexis",Employé.ENTRAINEURTECH);
         e1.setMotdepasse("alexis");
         ListEmployes.add(e1);
         numeroEmp++;
@@ -90,6 +93,44 @@ public class Club {
 
     public ArrayList<EntrainementSolo> getEntrainementSolos() {
         return ListEntSolo;
+    }
+    public void addExercice(Exercice ex) {
+        ListExercices.add(ex);
+    }
+    public ArrayList<Exercice> getExercices(){return ListExercices;}
+    public void readCSVFile(String filePath) {
+        String csvDelimiter = ";";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+
+            // Lecture de l'en-tête
+            line = br.readLine();
+            String[] headers = line.split(csvDelimiter);
+
+            // Vérification des colonnes
+            if (headers.length < 3 || !headers[0].equals("Code") || !headers[1].equals("Intitule") || !headers[2].equals("Duree")) {
+                System.out.println("Le format du fichier CSV est incorrect.");
+                return;
+            }
+
+            // Lecture des lignes de données
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(csvDelimiter);
+
+                // Vérification du nombre de colonnes
+                if (data.length >= 3) {
+                    String code = data[0];
+                    String intitule = data[1];
+                    int duree = Integer.parseInt(data[2]);
+
+                    Exercice ex = new Exercice(code,intitule,duree);
+                    addExercice(ex);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public static void main(String[] args) {
         Club club = Club.getInstance();

@@ -46,10 +46,10 @@ public class Exercice {
 
     @Override
     public String toString() {
-        return "\nExercice :" +
-                "\nCode = " + Code +
-                "\nIntitule = " + Intitule +
-                "\nduree=" + duree + "\n";
+        return
+                Code +
+                ", " + Intitule +
+                ", " + duree ;
     }
     public boolean equals(Exercice e){
         if(getCode().equals(e.getCode())|| getIntitule().equals(e.getIntitule())) return true;

@@ -43,6 +43,8 @@ public class ClubFootball extends JFrame
         pack();
         // Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 
+        ///REMPLIR LES TABLES JOUEUR ENTRAINEUR ENTRAINEMENT SOLO ENTRAINEMENT COLLECTIF
+
         String[] columnNamesJoueur = {"Nom","Prénom","Date De Naissance","Numero","Poste","Salaire"};
         Object [][] dataJou = {};
         DefaultTableModel modeljoueur = new DefaultTableModel(dataJou,columnNamesJoueur);
@@ -55,13 +57,13 @@ public class ClubFootball extends JFrame
         tableEmployés.setModel(modelentraineur);
         RemplirTableEmploye();
 
-        String[] columnNamesEntSolo = {"Date","Duree","Entraineur","Description"};
+        String[] columnNamesEntSolo = {"Date","Duree","Entraineur","Joueur","Description"};
         Object [][] dataEntsolo = {};
         DefaultTableModel modelentsolo = new DefaultTableModel(dataEntsolo,columnNamesEntSolo);
         tableEntSolo.setModel(modelentsolo);
         RemplirTableEntSolo();
 
-        String[] columnNamesEntColl = {"Date","Duree","Entraineur","Joueur","Description"};
+        String[] columnNamesEntColl = {"Date","Duree","Entraineur","Description","Exercice"};
         Object [][] dataEntColl = {};
         DefaultTableModel modelentcoll = new DefaultTableModel(dataEntColl,columnNamesEntColl);
         tableEntColl.setModel(modelentcoll);
@@ -79,8 +81,6 @@ public class ClubFootball extends JFrame
                 else{
                     JOptionPane.showMessageDialog(null,"Un Entraineur doit etre connecter", "Entrainement", JOptionPane.ERROR_MESSAGE);
                 }
-
-
             }
         });
         loginButton.addActionListener(new ActionListener() {
@@ -256,6 +256,7 @@ public class ClubFootball extends JFrame
                     e.getDuree(),
                     e.getEntraineur().getNom(),
                     e.getDescription(),
+                    e.getExerciceEnt(),
             };
             modelentrainementcoll.addRow(rowData);
         }

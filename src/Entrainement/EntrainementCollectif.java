@@ -6,20 +6,27 @@ import personne.intervenant.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class EntrainementCollectif extends Entrainement
-{
-    public EntrainementCollectif()
-    {
+public class EntrainementCollectif extends Entrainement {
+    private final ArrayList<Exercice> ListExercicesEnt;
+
+    public EntrainementCollectif() {
         super();
+        ListExercicesEnt = new ArrayList<>();
     }
 
-    public EntrainementCollectif(LocalDate date, int duree, Employé entraineur, String description)
-    {
+
+    public EntrainementCollectif(LocalDate date, int duree, Employé entraineur, String description,ArrayList<Exercice> exercices) {
         super(date, duree, entraineur, description);
+        ListExercicesEnt = new ArrayList<>(exercices);
+    }
+    public void addExerciceEnt(Exercice ex) {
+        ListExercicesEnt.add(ex);
     }
 
-    public boolean equals(EntrainementCollectif e)
-    {
+    public ArrayList<Exercice> getExerciceEnt(){return ListExercicesEnt;}
+
+
+    public boolean equals(EntrainementCollectif e) {
         return super.equals(e);
     }
 
@@ -27,7 +34,8 @@ public class EntrainementCollectif extends Entrainement
     public String toString() {
         return super.toString();
     }
-    public static void main(String[] args) {
+}
+    /*public static void main(String[] args) {
         //TEST CONSTRUCTEUR DEFAUT
         EntrainementCollectif e1 = new EntrainementCollectif();
         System.out.println(e1);
@@ -58,4 +66,4 @@ public class EntrainementCollectif extends Entrainement
         else
             System.out.println("\nPas les memes entrainements");
     }
-}
+}*/
